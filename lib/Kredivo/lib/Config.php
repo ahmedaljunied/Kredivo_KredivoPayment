@@ -3,7 +3,7 @@
 class Kredivo_Config
 {
     public static $server_key;
-    public static $api_version   = 'v2';
+    public static $api_version   = 'v1';
     public static $is_production = false;
 
     const SANDBOX_ENDPOINT    = 'https://sandbox.kredivo.com/kredivo';
