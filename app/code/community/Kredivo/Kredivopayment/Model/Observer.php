@@ -21,4 +21,20 @@ class Kredivo_Kredivopayment_Model_Observer
 
         }
     }
+
+    public function filterPaymentMethod(Varien_Event_Observer $observer)
+    {
+      $quote = $observer->getQuote();
+      $method = $observer->getEvent()->getMethodInstance();
+      $subtotal = (int) $quote->getSubtotal();
+      $result = $observer->getEvent()->getResult();
+
+      $payment_code = $method->getCode();
+
+      if ($payment_code =='kredivopayment') {
+        if ($subtotal > 3000000):
+          $result->isAvailable = false;
+        endif;
+      }
+    }
 }

@@ -21,6 +21,17 @@
                 <class>Kredivo_Kredivopayment_Block</class>
             </kredivopayment>
         </blocks>
+        <events>
+          <payment_method_is_active>
+            <observers>
+              <Kredivo_Kredivopayment_Model_Observer>
+                <type>singleton</type>
+                <class>Kredivo_Kredivopayment_Model_Observer</class>
+                <method>filterPaymentMethod</method>
+              </Kredivo_Kredivopayment_Model_Observer>
+            </observers>
+          </payment_method_is_active>
+        </events>
     </global>
     <default>
         <payment>
@@ -38,7 +49,7 @@
         </payment>
     </default>
     <frontend>
-        <events>  
+        <events>
             <payment_method_is_active>
                 <observers>
                     <kredivopayment>
