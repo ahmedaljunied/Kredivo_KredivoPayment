@@ -26,13 +26,13 @@ class Kredivo_Kredivopayment_Model_Observer
     {
       $quote = $observer->getQuote();
       $method = $observer->getEvent()->getMethodInstance();
-      $grandtotal = (int) $quote->getGrandtotal();
+      $subtotal = (int) $quote->getSubtotal();
       $result = $observer->getEvent()->getResult();
 
       $payment_code = $method->getCode();
 
       if ($payment_code =='kredivopayment') {
-        if ($grandtotal >= 3000000):
+        if ($subtotal >= 2990000):
           $result->isAvailable = false;
         endif;
       }
