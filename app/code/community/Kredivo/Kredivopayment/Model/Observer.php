@@ -26,7 +26,9 @@ class Kredivo_Kredivopayment_Model_Observer
     {
       $quote = $observer->getQuote();
       $method = $observer->getEvent()->getMethodInstance();
-      $subtotal = (int) $quote->getSubtotal();
+      if ($quote) {
+        $subtotal = (int) $quote->getSubtotal();
+      }
       $result = $observer->getEvent()->getResult();
 
       $payment_code = $method->getCode();
