@@ -243,10 +243,12 @@ class Kredivo_Kredivopayment_PaymentController extends Mage_Core_Controller_Fron
                             $order->sendOrderUpdateEmail(true, 'Thank you, your payment is successfully processed.');
                             break;
                         case 'deny':
-                            $order->setStatus(Mage_Sales_Model_Order::STATE_CANCELED);
+                            $order->cancel()->setState(Mage_Sales_Model_Order::STATE_CANCELED, true, 'Kredivo has declined the payment.')->save();
+                            // $order->setStatus(Mage_Sales_Model_Order::STATE_CANCELED);
                             break;
                         case 'cancel':
-                            $order->setStatus(Mage_Sales_Model_Order::STATE_CANCELED);
+                            $order->cancel()->setState(Mage_Sales_Model_Order::STATE_CANCELED, true, 'Kredivo has declined the payment.')->save();
+                            // $order->setStatus(Mage_Sales_Model_Order::STATE_CANCELED);
                             break;
                     }
 
