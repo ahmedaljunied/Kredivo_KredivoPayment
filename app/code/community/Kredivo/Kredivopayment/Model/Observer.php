@@ -34,7 +34,7 @@ class Kredivo_Kredivopayment_Model_Observer
       $payment_code = $method->getCode();
 
       if ($payment_code =='kredivopayment') {
-        if ($subtotal >= 2990000):
+        if ($subtotal >= 1990000):
           $result->isAvailable = false;
         endif;
       }
