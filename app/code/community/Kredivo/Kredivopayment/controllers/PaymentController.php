@@ -266,7 +266,8 @@ class Kredivo_Kredivopayment_PaymentController extends Mage_Core_Controller_Fron
             $site_name = "http://vendor.tinkerlust.com";
 
             $name = $order->getBillingAddress()->getName();
-            $email = $order_billing_address->getEmail();
+            if ($order_billing_address)
+                $email = $order_billing_address->getEmail();
             $order_no = $orderId;
             $total = $this->is_string($totalPrice);
             $transfer_no = $notification->transaction_id;
